@@ -1,0 +1,19 @@
+{
+    "manifest_version": 1,
+    "name": "TBD",
+    "version": "1.0",
+    "description": "future awesome food extension.",
+    "action": {
+        "default_popup": "index.html"
+        "default_icon": {
+            ...
+        }
+    },
+
+    // "content_scripts": [
+    //     {
+    //         "matches": [],
+    //         "js": ["./main.js"]
+    //     }
+    // ]
+  }
