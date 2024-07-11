@@ -1,3 +1,4 @@
+// Create empty arrays to store the selected ingredients and tools
 const selectedIngredients = [];
 const selectedTools = [];
 
@@ -49,13 +50,14 @@ function displayRecipes(recipes) {
     recipeResults.innerHTML = '';
 
     // Iterate over each recipe in the array
-    recipes.forEach(recipe => {
+    recipes.forEach(recipeData => {
+        const recipe = recipeData.recipe;
         // Create a new div element to hold the recipe details
         const recipeElement = document.createElement('div');
         // Set the inner HTML of the div to display the recipe title and image
         recipeElement.innerHTML = `
-            <h3>${recipe.title}</h3>
-            <img src="${recipe.image}" alt="${recipe.title}">
+            <h3>${recipe.label}</h3>
+            <img src="${recipe.image}" alt="${recipe.label}">
         `;
         // Append the new div to the recipeResults container
         recipeResults.appendChild(recipeElement);
@@ -67,7 +69,7 @@ document.getElementById('generateRecipe').addEventListener('click', () => {
     // Join the selected ingredients into a comma-separated string
     const ingredients = selectedIngredients.join(',');
 
-    // Example API call to Spoonacular (you need an API key)
+    // Example API call to Edamam (using application ID and key)
     const appId = '2de13cab';
     const appKey = 'fdcde1101f736c957dcb280478a4ea7f';
     fetch(`https://api.edamam.com/search?q=${ingredients}&app_id=${appId}&app_key=${appKey}`)
@@ -80,9 +82,9 @@ document.getElementById('generateRecipe').addEventListener('click', () => {
         }) // Convert the response to JSON
         .then(data => {
             console.log('Data:', data); // Log the data to inspect it
-            if (Array.isArray(data)) {
+            if (Array.isArray(data.hits)) {
                 // Pass the received recipes data to the displayRecipes function
-                displayRecipes(data);
+                displayRecipes(data.hits);
             } else {
                 console.error('Unexpected response format:', data);
             }
