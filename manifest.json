@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "Food Recipe Finder",
+    "version": "1.0",
+    "description": "Find recipes based on selected ingredients.",
+    "permissions": ["storage", "activeTab", "scripting"],
+    "action": {
+      "default_popup": "index.html"
+    },
+    "icons": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  }  

@@ -1,22 +1,14 @@
-// Create empty arrays to store the selected ingredients and tools
 const selectedIngredients = [];
 const selectedTools = [];
 
-// Add event listeners to each ingredient button to handle selection and deselection
 document.querySelectorAll('.ingredient').forEach(button => {
     button.addEventListener('click', () => {
-        // Get the name of the ingredient from the data-name attribute
         const ingredient = button.getAttribute('data-name');
-        // Check if the ingredient is already selected
         if (!selectedIngredients.includes(ingredient)) {
-            // If not, add it to the selectedIngredients array
             selectedIngredients.push(ingredient);
-            // Change the button color to indicate selection
             button.style.backgroundColor = '#888';
         } else {
-            // If it is already selected, remove it from the array
             selectedIngredients.splice(selectedIngredients.indexOf(ingredient), 1);
-            // Change the button color back to indicate deselection
             button.style.backgroundColor = '#4caf50';
         }
     });
@@ -64,12 +56,9 @@ function displayRecipes(recipes) {
     });
 }
 
-// Add an event listener to the "Generate Recipe" button to fetch recipes
 document.getElementById('generateRecipe').addEventListener('click', () => {
-    // Join the selected ingredients into a comma-separated string
     const ingredients = selectedIngredients.join(',');
 
-    // Example API call to Edamam (using application ID and key)
     const appId = '2de13cab';
     const appKey = 'fdcde1101f736c957dcb280478a4ea7f';
     fetch(`https://api.edamam.com/search?q=${ingredients}&app_id=${appId}&app_key=${appKey}`)
@@ -79,7 +68,7 @@ document.getElementById('generateRecipe').addEventListener('click', () => {
                 throw new Error(`Network response was not ok: ${response.statusText}`);
             }
             return response.json();
-        }) // Convert the response to JSON
+        }) 
         .then(data => {
             console.log('Data:', data); // Log the data to inspect it
             if (Array.isArray(data.hits)) {
