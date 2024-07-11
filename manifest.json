@@ -4,7 +4,7 @@
     "version": "1.0",
     "description": "future awesome food extension.",
     "action": {
-        "default_popup": "index.html"
+        "default_popup": "index.html",
         "default_icon": {
             ...
         }

@@ -2,13 +2,24 @@
 <html lang ="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
     <title>Food Chrome Extension</title>
-    <script src='script.js'></script>
-    <link rel="stylesheet" href="src/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button class="ingredient" data-name="potato">Potato</button>
-</body>
+        
+    <h1>Select Ingredients</h1>
+        <button class="ingredient" data-name="potato">Potato</button>
+        <button class="ingredient" data-name="broccolini">Broccolini</button>
+        <button class="ingredient" data-name="lemon">Lemon</button>
+    <h1>Select Tools</h1>
+        <button class="tool" data-name="microwave">Microwave</button>
+        <button class="tool" data-name="stove">Stove</button>
+        <button class="tool" data-name="air fryer">Air Fryer</button>  
 
+        <button id="generateRecipe">Generate Recipe</button>
+        <div id="recipeResults"></div>
+    <script src="script.js"></script> 
+</body>
 </html>
     

@@ -1,0 +1,28 @@
+button {
+    margin: 5px;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button.selected {
+    background-color: #888;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+
+#recipeResults div {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
