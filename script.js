@@ -1,4 +1,3 @@
-// Create empty arrays to store the selected ingredients and tools
 const selectedIngredients = [];
 const selectedTools = [];
 
@@ -42,22 +41,7 @@ document.querySelectorAll('.tool').forEach(button => {
     });
 });
 
-// Add an event listener to the "Generate Recipe" button to fetch recipes
-document.getElementById('generateRecipe').addEventListener('click', () => {
-    // Join the selected ingredients and tools into comma-separated strings
-    const ingredients = selectedIngredients.join(',');
-    const tools = selectedTools.join(',');
-
-    // Example API call to Spoonacular (you need an API key)
-    fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=d01c7dca1ec14c9eb6be6433865fa052`)
-        .then(response => response.json()) // Convert the response to JSON
-        .then(data => {
-            // Pass the received recipes data to the displayRecipes function
-            displayRecipes(data);
-        });
-});
-
-// Function to display the fetched recipes in the HTML
+// Define the displayRecipes function before using it
 function displayRecipes(recipes) {
     // Get the container element where the recipes will be displayed
     const recipeResults = document.getElementById('recipeResults');
@@ -77,3 +61,33 @@ function displayRecipes(recipes) {
         recipeResults.appendChild(recipeElement);
     });
 }
+
+// Add an event listener to the "Generate Recipe" button to fetch recipes
+document.getElementById('generateRecipe').addEventListener('click', () => {
+    // Join the selected ingredients into a comma-separated string
+    const ingredients = selectedIngredients.join(',');
+
+    // Example API call to Spoonacular (you need an API key)
+    const appId = '2de13cab';
+    const appKey = 'fdcde1101f736c957dcb280478a4ea7f';
+    fetch(`https://api.edamam.com/search?q=${ingredients}&app_id=${appId}&app_key=${appKey}`)
+        .then(response => {
+            console.log('Response:', response); // Log the response
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+            }
+            return response.json();
+        }) // Convert the response to JSON
+        .then(data => {
+            console.log('Data:', data); // Log the data to inspect it
+            if (Array.isArray(data)) {
+                // Pass the received recipes data to the displayRecipes function
+                displayRecipes(data);
+            } else {
+                console.error('Unexpected response format:', data);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching recipes:', error); // Log any errors
+        });
+});

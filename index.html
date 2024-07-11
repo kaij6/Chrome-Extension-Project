@@ -1,25 +1,51 @@
 <!DOCTYPE html>
-<html lang ="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Chrome Extension</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-        
-    <h1>Select Ingredients</h1>
-        <button class="ingredient" data-name="potato">Potato</button>
-        <button class="ingredient" data-name="broccolini">Broccolini</button>
-        <button class="ingredient" data-name="lemon">Lemon</button>
-    <h1>Select Tools</h1>
-        <button class="tool" data-name="microwave">Microwave</button>
-        <button class="tool" data-name="stove">Stove</button>
-        <button class="tool" data-name="air fryer">Air Fryer</button>  
-
-        <button id="generateRecipe">Generate Recipe</button>
-        <div id="recipeResults"></div>
-    <script src="script.js"></script> 
+    <header>
+        <h1>Food Recipe Finder</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Select Ingredients</h2>
+            <div class="buttons-container">
+                <button class="ingredient" data-name="potato">Potato</button>
+                <button class="ingredient" data-name="broccolini">Broccolini</button>
+                <button class="ingredient" data-name="lemon">Lemon</button>
+                <button class="ingredient" data-name="tomato">Tomato</button>
+                <button class="ingredient" data-name="chicken">Chicken</button>
+                <button class="ingredient" data-name="garlic">Garlic</button>
+                <button class="ingredient" data-name="onion">Onion</button>
+                <button class="ingredient" data-name="bell pepper">Bell Pepper</button>
+                <button class="ingredient" data-name="cheese">Cheese</button>
+                <button class="ingredient" data-name="bacon">Bacon</button>
+                <button class="ingredient" data-name="spinach">Spinach</button>
+                <button class="ingredient" data-name="mushroom">Mushroom</button>
+                <button class="ingredient" data-name="beef">Beef</button>
+                <button class="ingredient" data-name="carrot">Carrot</button>
+                <button class="ingredient" data-name="zucchini">Zucchini</button>
+            </div>
+        </section>
+        <section>
+            <h2>Select Tools</h2>
+            <div class="buttons-container">
+                <button class="tool" data-name="microwave">Microwave</button>
+                <button class="tool" data-name="stove">Stove</button>
+                <button class="tool" data-name="air fryer">Air Fryer</button>
+            </div>
+        </section>
+        <section>
+            <button id="generateRecipe">Generate Recipe</button>
+        </section>
+        <section>
+            <div id="recipeResults"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
-    
